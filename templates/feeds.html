@@ -1,0 +1,65 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class="container-fluid position-relative">
+        <div class="card border border-0 bg-transparent p-5">
+         <img class="bd-placeholder-img bd-placeholder-img-lg card-img" width="80%" height="600" src="{{url_for('static', filename='img/show.jpg')}}" role="img" preserveAspectRatio="xMidYMid slice" focusable="false" style="background-blend-mode: darken;"><rect width="100%" height="100%"></rect></img>
+        <div class="card-img-overlay p-5" style="color:white;">
+        <div class="container-fluid w-75 p-3">
+        <h5 class="card-title text-light" style="font-size: 4rem; font-family: Chela One; ">Feeds Section</h5>
+        <p class="card-text fs-3">Where all the magic is seen from all over the world, see experiences which you could have never known about from people struggling to live in christ, enjoying life in christ or living their lives in christ. Read stories from all angles.</p>
+        </div>
+      </div>
+    </div>
+ </div>
+
+<section id="feeds">
+  <div class="container-fluid">
+    <p class="text-center fs-3 fw-bold">Take a look at some of great stories people have to share.</p>
+  </div>
+  <div class="container-fluid position-relative p-3 w-75 cn">
+      <div class="row row-cols-3 row-cols-md-2 g-2">
+          {%for post in posts %}
+              <div class="col">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold fs-4"><a class="link-underline-light" href="{{url_for('feed', post_id=post.id)}}">{{post.title}}</a></h5>
+                    <p class="card-text">{{post.content}}</p>
+                  </div>
+                  <div class="card-footer">
+                      <img class="rounded-circle" src="{{url_for('static', filename='profiles/' + post.author.user_image)}}" style="height: 30px; width: 30px;">
+                  <small class="text-body-secondary">By {{post.author.username}} on {{post.date.strftime('%d-%m-%Y %H:%M')}}</small>
+                  </div>
+                </div>
+              </div>
+            {%endfor%}
+        </div>
+  </div>
+</section>
+ <footer id='contact' class="bg-black">
+    <div class="container-fluid position-relative bg-black sticky-bottom p-4">
+        <div class="row">
+          <div class="col">
+            <p style="color: white;">Motto<br>For His greatness we shall spread.</p>
+            <p style="color: white;">Goal<br>To bring all to him.</p>
+            <p style="color: white;">Mission<br>Same as I was saved so will others.</p>
+          </div>
+          <div class="col">
+            <p class="fs-4 fw-bold"style="color: white;">Socials</p>
+            <p class="fs-5" style="color: white;"><i class='bx bxl-twitter fs-4 text-white' style='color:#ffffff'></i> Twitter</p>
+            <p class="fs-5" style="color: white;"><i class='bx bxl-instagram-alt fs-4' style='color:#ffffff'></i> Instagram</p>
+             <p class="fs-5" style="color: white;"><i class='bx bxl-facebook-square fs-4' style='color:#ffffff'></i> Facebook </p>
+          </div>
+          <div class="col">
+             <p class="fs-5 fw-bold"style="color: white;">Reach Us</p>
+            <p style="color: white;"> <i class='bx bxs-map fs-5' style='color:#ffffff' ></i>  Nairobi CBD </p>
+            <p style="color: white;"> <i class='bx bxs-building-house fs-5' style='color:#ffffff' ></i> Union Towers</p>
+            <p style="color: white;"> <i class='bx bxs-phone fs-5' style='color:#ffffff' ></i> 0100245677</p>
+            <p style="color: white;"> <i class='bx bxs-envelope fs-5' style='color:#ffffff' ></i> assist.shareit@gmail.com</p>
+          </div>
+            <p class="text-center" style="font-family: Croissant One; font-size: 1rem;">&copy;2023 ShareIt necxlabsinc&reg;</p>
+        </div>
+    </div>
+  </footer>
+{%endblock content%}

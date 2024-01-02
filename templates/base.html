@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%if title%}
+    <title> ShareIt - {{title}}</title>
+    {%else%}
+    <title>Share It</title>
+    {%endif%}
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='img/share.png')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Bree+Serif&family=Chela+One&family=Croissant+One&family=Faster+One&family=Modak&family=Monofett&family=Rubik+Bubbles&family=Rubik+Dirt&family=Rubik+Distressed&family=Rubik+Gemstones&family=Rubik+Maps&family=Rubik+Wet+Paint&family=Signika&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body style="font-family: Bree Serif;">
+ <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg bg-black sticky-top" data-bs-theme="dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{{url_for('home')}}" style="font-family: Rubik Bubbles;">Share<span class="fs-4" style="font-family: Rubik Maps;">It</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('feeds')}}">Feeds</a>
+                </li>
+                  {% if current_user.is_authenticated%}
+                  <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Account</a>
+                  </li>
+                  {%else%}
+                  <li class="nav-item">
+                  <a class=" nav-link" href="{{url_for('login')}}">Login</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="{{url_for('register')}}">Register</a>
+                </li>
+                  {%endif%}
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+  <main>
+      {% with messages =  get_flashed_messages(with_categories=true)%}
+        {%if messages%}
+          {%for category, message in messages%}
+            <div class="alert alert-{{category}} alert-dismissible fade-show position-absolute w-100" role="alert">
+              <strong>{{message}}</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {%endfor%}
+        {%endif%}
+    {%endwith%}
+    {%block content%} {%endblock content%}
+        <div class="offcanvas offcanvas-end  h-50" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title fw-bold fs-2" id="offcanvasRightLabel">{{current_user.username}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="list-group list-group-flush">
+                <a class="link-underline link-underline-opacity-0" href="{{url_for('account')}}"><li class="list-group-item">Profile</li></a>
+                <a class="link-underline link-underline-opacity-0" href="{{url_for('post')}}"><li class="list-group-item">Post</li></a>
+                <a class="link-underline link-underline-opacity-0" href="{{url_for('feeds')}}"><li class="list-group-item">View Posts</li></a>
+                <a class="link-underline link-underline-opacity-0" href="{{url_for('logout')}}"><li class="list-group-item">Logout</li></a>
+              </ul>
+            </div>
+        </div>
+  </main>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

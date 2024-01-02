@@ -1,0 +1,102 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<section id="home" >
+    <div class="card">
+      <img class="bd-placeholder-img bd-placeholder-img-lg card-img" width="90%" height="600" src="{{url_for('static', filename='img/share.jpg')}}" role="img" aria-label="Placeholder: Card image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect></img>
+      <div class="card-img-overlay" style="color:white;">
+        <div class="container-fluid w-75">
+        <p class="text-small fs-3"> What is share it ?</p>
+        <h5 class="card-title fs-1 fw-bold">Share It</h5>
+        <p class="card-text fs-3">A home, space, room, call it anyplace where you can share your experiences as a christian and a chance to meet and connect with people who have had a taste of Gods glory.</p>
+      </div>
+      </div>
+    </div>
+    <div class="container-fluid position-relative p-2">
+          <br>
+          <div class="row">
+          <div class="card text-center p-3 bg-transparent border border-0 w-50">
+            <div class="card-header fs-3 fw-bold border border-0">
+              Share It
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">A journal for you to share with the world your experiences.</h5>
+              <a href="{{url_for('feeds')}}" class="btn btn-primary">See Posts</a>
+            </div>
+          </div>
+
+        <div class="card text-center p-3 bg-transparent border border-0 w-50">
+            <div class="card-header fs-3 fw-bold border border-0">
+              Share It
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">A place you get to share without feeling judged.</h5>
+              <a href="{{url_for('post')}}" class="btn btn-primary">Share</a>
+            </div>
+        </div>
+        </div>
+    </div>
+  </section>
+  <section id="more">
+  <div class="fw-bold text-uppercase" style="font-size: 2rem;">
+             Why Share Your experiences ?
+  </div>
+    <div class="container-fluid position-relative">
+      <div class="row row-cols-1 row-cols-md-4 g-7">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="{{url_for('static', filename='img/believe.jpg')}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Boost Your Faith</h5>
+                <p class="card-text">Giving you the opportunity to see first hand works of God through other people. Share it allows you to boost your connectivity with Good by making you believe in Him at your lowest or when loosing faith in Him. As said in Peter 1:21 “Through him you believe in God, who raised him from the dead and glorified him, and so your faith and hope are in God.”.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="{{url_for('static', filename='img/connect.jpg')}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Connect</h5>
+                <p class="card-text">The bible says, Hebrews 10:24-25 ESVAnd let us consider how to stir up one another to love and good works, not neglecting to meet together, as is the habit of some, but encouraging one another, and all the more as you see the Day drawing near. Matthew 18:20 ESV, For where two or three are gathered in my name, there am I among them.”.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="{{url_for('static', filename='img/fear.jpg')}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Feel Safe</h5>
+                <p class="card-text">Sharing anonymously or using a reference can help gain courage to get out there as a christian. Also, Psalms 16:2,5,8 'You are my Lord; apart from you I have no good thing. '” “Lord, you alone are my portion and my cup; you make my lot secure.” “I keep my eyes always on the Lord. With him at my right hand, I will not be shaken..</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+<br>
+ <footer id='contact' class="bg-black">
+    <div class="container-fluid position-relative bg-black sticky-bottom p-4">
+        <div class="row">
+          <div class="col">
+            <p style="color: white;">Motto<br>For His greatness we shall spread.</p>
+            <p style="color: white;">Goal<br>To bring all to him.</p>
+            <p style="color: white;">Mission<br>Same as I was saved so will others.</p>
+          </div>
+          <div class="col">
+            <p class="fs-4 fw-bold"style="color: white;">Socials</p>
+            <p class="fs-5" style="color: white;"><i class='bx bxl-twitter fs-4' style='color:#ffffff'></i> Twitter</p>
+            <p class="fs-5" style="color: white;"><i class='bx bxl-instagram-alt fs-4' style='color:#ffffff'></i> Instagram</p>
+             <p class="fs-5" style="color: white;"><i class='bx bxl-facebook-square fs-4' style='color:#ffffff'></i> Facebook </p>
+          </div>
+          <div class="col">
+             <p class="fs-5 fw-bold"style="color: white;">Reach Us</p>
+            <p style="color: white;"> <i class='bx bxs-map fs-5' style='color:#ffffff' ></i>  Nairobi CBD </p>
+            <p style="color: white;"> <i class='bx bxs-building-house fs-5' style='color:#ffffff' ></i> Union Towers</p>
+            <p style="color: white;"> <i class='bx bxs-phone fs-5' style='color:#ffffff' ></i> 0100245677</p>
+            <p style="color: white;"> <i class='bx bxs-envelope fs-5' style='color:#ffffff' ></i> assist.shareit@gmail.com</p>
+          </div>
+            <p class="text-center" style="font-family: Croissant One; font-size: 1rem;">&copy;2023 ShareIt necxlabsinc&reg;</p>
+        </div>
+    </div>
+  </footer>
+{%endblock content%}

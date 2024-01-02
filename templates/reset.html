@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%block content%}
+<section id="login" class="vh-100" style="background-image: background-attachment: fixed; background-repeat: no-repeat; background-size: cover;">
+            <div class="container-fluid position-relative w-50 p-5  bg-transparent" >
+                <div class="card text-center">
+                <div class="card-header text-uppercase fw-bold">
+                    Reset Password
+                </div>
+                <div class="card-body bg-transparent">
+                    <form method="POST">
+                    <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class='bx bxs-envelope'></i></span>
+                    <input type="text" name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping">
+                    </div>
+                    <br>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">Reset</button>
+                    </div>
+                    </form>
+                    <div class="p-1">
+                        <p><a href="{{url_for('login')}}">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+{%endblock content%}

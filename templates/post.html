@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block content%}
+    <div class="container-fluid position-relative vh-100">
+      <div class="card mb-3 vh-100 border border-light p-2">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img src="{{url_for('static', filename='img/nshare.jpg')}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-5">
+            <div class="card-body w-100">
+                <div class="card-header bg-transparent">
+                 <h4 class="card-title text-center fs-3 fw-bold text-decoration-underline" style="font-family: Croissant One;">New Experience</h4>
+                </div>
+                <form method="POST"  action="">
+                  <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label fs-5">Post Title</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="title">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label fs-5">Post Content</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" name="content"></textarea>
+                  </div>
+                  <div class="mb-3 text-center">
+                     <button type="submit" class="btn btn-outline-primary text-center w-25">Post</button>
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{%endblock content%}
