@@ -3,11 +3,11 @@ import secrets
 import random
 import string
 from flask_mail import Mail, Message
-from flask import *
-from datetime import *
+from flask import Flask, render_template, request, flash, redirect, abort, url_for
+from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from forms import *
+from forms import Image
 from flask_login import LoginManager, UserMixin, login_user, current_user, logout_user, login_required
 
 
@@ -230,7 +230,3 @@ def reset_code():
 def logout():
     logout_user()
     return redirect(url_for('home'))
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
