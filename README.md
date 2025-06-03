@@ -72,19 +72,6 @@ http://127.0.0.1:5000
 
 ---
 
-## 📈 Database Setup
-
-Make sure to create the SQLite3 DB if not present:
-
-```bash
-flask shell
->>> from app import db
->>> db.create_all()
->>> exit()
-```
-
----
-
 ## 📘 Sample Features To Expand
 
 * User registration
